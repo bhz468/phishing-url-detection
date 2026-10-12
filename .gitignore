@@ -1,0 +1,13 @@
+data/*
+!data/.gitkeep
+*.csv
+*.parquet
+*.pkl
+*.joblib
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+*.pem
+*.key
