@@ -11,7 +11,7 @@ tr = tr[tr["host"] != ""].reset_index(drop=True)
 train_hosts = set(tr["host"])
 top_tlds = tr["host"].map(lambda h: h.split(".")[-1]).value_counts().head(30).index.tolist()
 
-with open("data/external/openphish.txt") as f:
+with open("data/external/merged_openphish.txt") as f:
     op = pd.Series([host_of(l.strip()) for l in f if l.strip()])
 op = op[op != ""].drop_duplicates()
 op = op[~op.isin(train_hosts)]

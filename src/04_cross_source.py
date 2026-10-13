@@ -20,7 +20,7 @@ train_hosts = set(tr["host"])
 top_tlds = tr["host"].map(lambda h: h.split(".")[-1]).value_counts().head(30).index.tolist()
 
 # --- test data: OpenPhish (phishing) and Tranco (legitimate) ---
-with open("data/external/openphish.txt") as f:
+with open("data/external/merged_openphish.txt") as f:
     op_urls = [line.strip() for line in f if line.strip()]
 op_hosts = pd.Series([host_of(u) for u in op_urls])
 op_hosts = op_hosts[op_hosts != ""].drop_duplicates()
