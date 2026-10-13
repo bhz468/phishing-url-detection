@@ -22,7 +22,7 @@ top_tlds = tr["host"].map(lambda h: h.split(".")[-1]).value_counts().head(30).in
 with open("data/external/merged_openphish.txt") as f:
     op = pd.Series([host_of(l.strip()) for l in f if l.strip()])
 op = op[(op != "") & ~op.isin(train_hosts)].drop_duplicates().tolist()
-tc = pd.read_csv("data/external/top-1m.csv", header=None, names=["rank", "domain"])
+tc = pd.read_csv("data/external/tranco/top-1m.csv", header=None, names=["rank", "domain"])
 tc["host"] = tc["domain"].str.lower()
 legit = tc[~tc["host"].isin(train_hosts)]["host"].sample(3000, random_state=0).tolist()
 

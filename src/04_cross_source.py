@@ -27,7 +27,7 @@ op_hosts = op_hosts[op_hosts != ""].drop_duplicates()
 n_op_unique = len(op_hosts)
 op_hosts = op_hosts[~op_hosts.isin(train_hosts)]
 
-tc = pd.read_csv("data/external/top-1m.csv", header=None, names=["rank", "domain"])
+tc = pd.read_csv("data/external/tranco/top-1m.csv", header=None, names=["rank", "domain"])
 tc["host"] = tc["domain"].str.lower()
 tc = tc[~tc["host"].isin(train_hosts)]
 legit_hosts = tc["host"].sample(N_LEGIT, random_state=0)

@@ -10,7 +10,7 @@ tr = tr[tr["host"] != ""].reset_index(drop=True)
 train_hosts = set(tr["host"])
 top_tlds = tr["host"].map(lambda h: h.split(".")[-1]).value_counts().head(30).index.tolist()
 
-tc = pd.read_csv("data/external/top-1m.csv", header=None, names=["rank", "domain"])
+tc = pd.read_csv("data/external/tranco/top-1m.csv", header=None, names=["rank", "domain"])
 tc["host"] = tc["domain"].str.lower()
 tc = tc[~tc["host"].isin(train_hosts)]
 

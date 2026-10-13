@@ -16,7 +16,7 @@ with open("data/external/merged_openphish.txt") as f:
 op = op[op != ""].drop_duplicates()
 op = op[~op.isin(train_hosts)]
 
-tc = pd.read_csv("data/external/top-1m.csv", header=None, names=["rank", "domain"])
+tc = pd.read_csv("data/external/tranco/top-1m.csv", header=None, names=["rank", "domain"])
 tc = tc[~tc["domain"].str.lower().isin(train_hosts)]
 legit = tc.sample(3000, random_state=0)
 

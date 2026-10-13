@@ -40,7 +40,7 @@ print(pun_tr["y"].value_counts().rename({0: "legitimate", 1: "phishing"}).to_str
 print(f"  share of phishing rows: {(pun_tr['y'] == 1).sum() / (tr['y'] == 1).sum():.4f} | "
       f"share of legitimate rows: {(pun_tr['y'] == 0).sum() / (tr['y'] == 0).sum():.4f}")
 
-tc_all = pd.read_csv("data/external/top-1m.csv", header=None, names=["rank", "domain"])
+tc_all = pd.read_csv("data/external/tranco/top-1m.csv", header=None, names=["rank", "domain"])
 tc_all["host"] = tc_all["domain"].str.lower()
 top10k = tc_all[tc_all["rank"] <= 10_000]
 print(f"\nTranco top-10k hosts excluded because they appear in PhiUSIIL: "
